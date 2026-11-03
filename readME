@@ -1,0 +1,199 @@
+# AI Property Video Generator
+
+## 1. Project Overview
+
+The **AI Property Video Generator** is a Python-based application that converts property information and uploaded images into a short promotional MP4 video.
+
+The application is designed to help real estate sales teams create property promotional videos quickly without manually editing each video in a video editor.
+
+Users can enter property details, upload images, generate promotional text, preview the resulting video, and download the MP4 file.
+
+## 2. Features
+
+- Simple web-based interface built with Streamlit.
+- Input form for property name, location, property type, price, key features, description, and contact/call-to-action text.
+- Upload support for JPG, JPEG, PNG, and WEBP images.
+- Template-based promotional script and caption generation.
+- Automatic arrangement of property photos into video scenes.
+- Readable text overlays displaying property information.
+- Simple fade-in effect for each scene.
+- MP4 video export using OpenCV.
+- Video preview and download functionality.
+- Input validation and error messages for missing details or invalid images.
+
+## 3. Technologies Used
+
+- **Python:** Application logic and video generation.
+- **Streamlit:** Web-based user interface.
+- **OpenCV:** Video frame processing and MP4 export.
+- **Pillow (PIL):** Image processing, resizing, and text overlays.
+- **NumPy:** Image frame conversion and numerical operations.
+
+## 4. Project Structure
+
+```text
+Property_video_generator/
+├── app.py
+├── video_generator.py
+├── requirements.txt
+├── README.md
+├── sample_images/
+└── output/
+```
+
+- `app.py` — Provides the user interface, accepts property details and images, and displays the generated video.
+- `video_generator.py` — Generates promotional text, prepares image scenes, adds text overlays, and exports the MP4 video.
+- `requirements.txt` — Lists the Python dependencies.
+- `sample_images/` — Optional folder for sample property images.
+- `output/` — Optional folder for storing generated videos.
+
+The current application downloads the generated video through the interface; the folders above are provided for organizing sample assets and future output storage.
+
+## 5. Installation and Setup
+
+### Prerequisites
+
+- Python 3.10 or later recommended.
+- Visual Studio Code or another Python editor.
+- An internet connection for installing dependencies.
+
+### Step 1: Open the project folder
+
+Open the `Property_video_generator` folder in Visual Studio Code.
+
+### Step 2: Create a virtual environment
+
+Open the terminal in the project directory and run:
+
+```bash
+python -m venv .venv
+```
+
+### Step 3: Activate the virtual environment
+
+For Windows Command Prompt:
+
+```bash
+.venv\Scripts\activate
+```
+
+### Step 4: Install dependencies
+
+Run:
+
+```bash
+python -m pip install -r requirements.txt
+```
+
+The `requirements.txt` file contains:
+
+```text
+streamlit
+opencv-python
+pillow
+numpy
+```
+
+### Step 5: Run the application
+
+Run:
+
+```bash
+python -m streamlit run app.py
+```
+
+Streamlit will provide a local URL, usually:
+
+```text
+http://localhost:8501
+```
+
+Open this URL in a browser to use the application.
+
+## 6. How to Use
+
+1. Open the application in your browser.
+2. Enter the property name and location.
+3. Select the property type and enter its price.
+4. Add the key features and an optional description.
+5. Enter contact details or a call-to-action message.
+6. Upload between four and eight property images.
+7. Click **Generate Video**.
+8. Review the generated promotional script.
+9. Preview the generated video.
+10. Click **Download MP4** to save the video.
+
+## 7. Sample Input
+
+The following fictional property information can be used for testing:
+
+- **Property Name:** Pine View Residence
+- **Location:** Shimla, Himachal Pradesh
+- **Property Type:** Independent House
+- **Price:** ₹85 lakh
+- **Key Features:** 3 bedrooms, balcony, spacious living room, natural lighting
+- **Description:** A family home with spacious rooms and bright interiors.
+- **Call to Action:** Contact us today to arrange a visit.
+- **Images:** Four to eight sample property photographs.
+
+Only use property details and images that are permitted for demonstration purposes.
+
+## 8. Expected Output
+
+The application generates a promotional MP4 video containing property photographs, text overlays, property details, captions, and an enquiry prompt.
+
+The generated video can be previewed in the browser and downloaded as `property_promo.mp4`.
+
+The duration depends on the number of scenes. The current implementation uses approximately four seconds per scene.
+
+**Sample output file:** `property_promo.mp4`
+
+Include an actual generated sample MP4 in the final submission.
+
+## 9. AI/ML Approach
+
+The current prototype uses **rule-based, template-driven text generation** rather than a trained machine learning model or an external generative AI service.
+
+The application creates promotional text using the property information supplied by the user. The same information is used to produce captions for the video scenes.
+
+This approach has several advantages:
+
+- No external AI API key is required.
+- No API usage charges are required.
+- The output is reproducible and easy to test.
+- Property information can be kept within the local application.
+- The template approach reduces the risk of introducing unsupported property claims.
+
+The generated text is based on supplied information. However, the current implementation does not use an external AI model to independently verify property facts.
+
+## 10. Error Handling and Limitations
+
+The application checks for required property details and uploaded images before generating a video. It skips unreadable images and displays an error if no valid images remain or video export fails.
+
+Current limitations:
+
+- Promotional text is template-based, not generated by a trained AI model.
+- Voice-over and background music are not implemented.
+- Scene transitions are simple fade-in effects rather than full crossfades.
+- The application does not independently verify property information.
+- Video export depends on the local OpenCV and codec environment.
+- The current prototype is intended for demonstration, not production deployment.
+
+## 11. Future Improvements
+
+- Integrate a language model for more flexible promotional scripts.
+- Add text-to-speech narration.
+- Add royalty-free background music with appropriate licensing.
+- Introduce smoother transitions and more video layouts.
+- Add configurable video duration, aspect ratio, and branding.
+- Add automated checks to ensure generated claims match the supplied property data.
+
+## 12. Privacy and Security
+
+The prototype does not require passwords, customer personal information, or external AI API keys.
+
+Use synthetic or anonymized property data for evaluation. Do not include confidential customer information, credentials, or API keys in the source code or submission.
+
+## 13. Conclusion
+
+The AI Property Video Generator demonstrates how a real estate team can automate a repetitive content-creation task using Python and multimedia libraries. It provides a working foundation for converting property details and images into a shareable promotional video, with opportunities for future AI-powered enhancements.
